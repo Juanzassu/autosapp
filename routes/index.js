@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var Mazda = require('../models/autos');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,6 +26,23 @@ router.get('/nissan', function(req,res,next){
 	infoNissan.logo = 'https://www.pacocostas.com/images/2017/12/Nissan-logo-51.jpg';
 	infoNissan.pagina = 'https://www.nissan.mx/';
 	res.render('nissan', infoNissan);
+});
+
+router.post('/alta', function(req,res,next){
+	//Crear objeto Mongo y hacer insert
+	var miMazda = Mazda({
+		nombre: req.body.nombre,
+		foto: req.body.foto
+	});
+
+	miMazda.save(function(err,data){
+		if (err){
+			console.log('error');
+		} else {
+			res.render('resultadoAlta', data);
+		}
+	});
+
 });
 
 module.exports = router;

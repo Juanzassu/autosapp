@@ -3,6 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+//ContraseñaMongo: develcurso 1z5XB8t5XGiWJ9Ez
+mongoose.connect('mongodb+srv://Developer:dios9876@ingsoft-7bzyg.gcp.mongodb.net/autosdb?retryWrites=true&w=majority',
+	{useNewUrlParser: true}).then(
+	() => {
+		console.log('Conectado a Mongo');
+	}
+	);
+
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
