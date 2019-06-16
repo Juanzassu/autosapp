@@ -5,7 +5,7 @@ After=network-online.target
 [Service]
 Restart=on-failure
 WorkingDirectory=/zassu/proyectos/gits/pagina_con_nodejs/autosapp/pruebas
-ExecStart=/zassu/proyectos/gits/pagina_con_nodejs/autosapp/pruebas/pruebadeservidor.js
+ExecStart= /usr/bin/node /zassu/proyectos/gits/pagina_con_nodejs/autosapp/pruebas/pruebadeservidor.js
 
 [Install]
 WantedBy=multi-user.target
